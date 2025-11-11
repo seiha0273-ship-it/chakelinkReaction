@@ -1,0 +1,237 @@
+/* === Import Font សម្រាប់ Khmer & English === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* === ការកំណត់ជាមូលដ្ឋាន (Base Styles) === */
+body {
+    font-family: 'Noto Sans Khmer', 'Poppins', sans-serif;
+    background-color: #f0f4f8; /* ផ្ទៃខាងក្រោយពណ៌ប្រផេះស្រាល */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #1a5c9a;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* === Style សម្រាប់ Controls ខាងលើ (Date, Group, Topic) === */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.control-group {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e0e0e0;
+}
+
+.control-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.control-group input[type="date"],
+.control-group input[type="text"] {
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Noto Sans Khmer', 'Poppins', sans-serif;
+    background-color: #fdfdfd;
+    width: 100%;
+    box-sizing: border-box; /* ធានាថា Padding មិនធ្វើឱ្យវាហៀរ */
+}
+
+/* === START: Style ថ្មីសម្រាប់ Member List === */
+
+.member-list-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    /* គែមពណ៌បៃតង ដូចក្នុងរូបភាព */
+    border-top: 5px solid #28a745; 
+    overflow: hidden; /* ធានាថាគែមបៃតងនៅតែស្អាត */
+}
+
+/* 1. Header របស់ List */
+.list-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.list-header h3 {
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4em;
+    color: #222;
+}
+
+.counters {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* ឱ្យវាធ្លាក់ជួរពេលនៅអេក្រង់តូច */
+}
+
+.counters span {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+.counters .count-done { color: #28a745; }
+.counters .count-not-done { color: #dc3545; }
+
+/* 2. Body របស់ List (ផ្ទៃប្រផេះ) */
+#member-list-body {
+    padding: 20px;
+    background-color: #f9f9f9; /* ផ្ទៃខាងក្រោយពណ៌ប្រផេះស្រាល */
+}
+
+/* 3. របស់ដែល Wrap ធាតុនីមួយៗ (Chip + Details) */
+.member-item-wrapper {
+    margin-bottom: 10px;
+}
+
+/* 4. "Chip" សម្រាប់សមាជិកម្នាក់ៗ (ដូចក្នុងរូប) */
+.member-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8e8;
+    padding: 12px 15px;
+}
+
+.member-name-chip {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #444;
+}
+
+.button-group-chip {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0; /* កុំឱ្យប៊ូតុងរួញ */
+}
+
+/* Style ប៊ូតុង ក្នុង Chip */
+.member-chip button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Noto Sans Khmer', 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+.btn-done {
+    background: linear-gradient(to bottom, #34d058, #28a745);
+}
+.btn-not-done {
+    background: linear-gradient(to bottom, #ea4a5a, #dc3545);
+}
+
+/* ប៊ូតុងពេល Active (ពេលចុច) */
+.member-chip button.active {
+    filter: brightness(1.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* 5. ប្រអប់ Link/Reason (រក្សា Style ពីមុន) */
+.action-details {
+    display: none;
+    margin-top: 5px; /* គម្លាតពី Chip */
+    padding: 15px;
+    background-color: #f7f9fc;
+    border: 1px dashed #c5d2e0;
+    border-radius: 8px;
+}
+.action-details.visible { display: block; }
+
+.action-details label { font-weight: 500; }
+
+.action-details input[type="text"],
+.action-details select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+/* === END: Style ថ្មីសម្រាប់ Member List === */
+
+
+/* === ផ្នែករបាយការណ៍ (រក្សា Style ពីមុន) === */
+.report-section {
+    margin-top: 25px;
+}
+
+#generate-report, #copy-report {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+#generate-report { background: linear-gradient(to bottom, #007bff, #0056b3); }
+#copy-report { background: linear-gradient(to bottom, #6c757d, #5a6268); margin-top: 10px; }
+
+#report-output {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 15px;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+/* === Responsive សម្រាប់ទូរស័ព្ទ === */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    h1 { font-size: 1.6em; }
+    .controls { padding: 0; }
+    .control-group { padding: 15px; }
+
+    /* រៀបចំ Chip សម្រាប់អេក្រង់តូច */
+    .member-chip {
+        flex-direction: column; /* ដាក់ឈ្មោះនៅលើ ប៊ូតុងនៅក្រោម */
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .button-group-chip {
+        width: 100%;
+    }
+    .button-group-chip button {
+        flex-grow: 1; /* ធ្វើឱ្យប៊ូតុងពង្រីកពេញ */
+    }
+}
