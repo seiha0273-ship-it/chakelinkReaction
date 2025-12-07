@@ -4,45 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>បញ្ចីស្រង់លីង Reaction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>បញ្ចីស្រង់លីង Reaction</h1>
+    <div class="main-container">
+        <header>
+            <h1>✨ បញ្ជីស្រង់លីង Reaction ✨</h1>
+            <p class="subtitle">ប្រព័ន្ធគ្រប់គ្រងទិន្នន័យទំនើប</p>
+        </header>
 
-    <div class="controls">
-        <div class="control-group">
-            <label for="report-date">🗓️ កាលបរិច្ឆេទ:</label>
-            <input type="date" id="report-date">
-        </div>
-        <div class="control-group">
-            <label for="group-info">👨‍👩‍👧‍👦 ព័ត៌មានក្រុម:</label>
-            <input type="text" id="group-info" value="ក្រុមទី37 (ថ្នាក់DPAជំនាន់2)">
-        </div>
-         <div class="control-group">
-            <label for="report-topic">📝 ប្រធានបទ:</label>
-            <input type="text" id="report-topic" value="ប្រធានបទ1:">
-        </div>
-    </div>
-
-    <div class="member-list-container">
-        
-        <div class="list-header">
-            <h3>👥 បញ្ជីឈ្មោះ (សរុប: <span id="total-count">0</span>)</h3>
-            <div class="counters">
-                <span class="count-done">✅ បានធ្វើ: <span id="done-count">0</span></span>
-                <span class="count-not-done">❌ មិនបានធ្វើ: <span id="not-done-count">0</span></span>
+        <div class="glass-card controls">
+            <div class="control-group">
+                <label>📅 កាលបរិច្ឆេទ</label>
+                <input type="date" id="report-date">
+            </div>
+            <div class="control-group">
+                <label>👥 ព័ត៌មានក្រុម</label>
+                <input type="text" id="group-info" value="ក្រុមទី37 (ថ្នាក់DPAជំនាន់2)">
+            </div>
+             <div class="control-group">
+                <label>📝 ប្រធានបទ</label>
+                <input type="text" id="report-topic" value="ប្រធានបទ1:">
             </div>
         </div>
-        
-        <div id="member-list-body">
-            </div>
 
-    </div>
-    <div class="report-section">
-        <button id="generate-report">សរុបរបាយការណ៍</button>
-        <textarea id="report-output" rows="12" readonly></textarea>
-        <button id="copy-report">ចម្លងរបាយការណ៍</button>
+        <div class="glass-card member-list-container">
+            <div class="list-header">
+                <h3>សមាជិកសរុប <span class="badge total" id="total-count">0</span></h3>
+                <div class="counters">
+                    <div class="counter-box done">
+                        <span class="emoji">✅</span>
+                        <span>បានធ្វើ: <b id="done-count">0</b></span>
+                    </div>
+                    <div class="counter-box not-done">
+                        <span class="emoji">❌</span>
+                        <span>មិនបាន: <b id="not-done-count">0</b></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="member-list-body">
+                </div>
+        </div>
+
+        <div class="glass-card report-section">
+            <button id="generate-report" class="btn-primary">🚀 សរុបរបាយការណ៍</button>
+            <div class="textarea-wrapper">
+                <textarea id="report-output" rows="10" readonly placeholder="របាយការណ៍នឹងបង្ហាញនៅទីនេះ..."></textarea>
+            </div>
+            <button id="copy-report" class="btn-secondary">📋 ចម្លងរបាយការណ៍</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
